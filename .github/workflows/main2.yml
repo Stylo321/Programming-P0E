@@ -1,14 +1,13 @@
-name: Java CI
+name: Java CI with Maven
 
 on:
   push:
-    branches: [ main ]  # or whatever your branch is
+    branches: [ main ]
   pull_request:
     branches: [ main ]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -20,5 +19,6 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Build with Maven
-      run: mvn -B package --file pom.xml
+    - name: Run tests with Maven
+      run: mvn -B test --file pom.xml
+
